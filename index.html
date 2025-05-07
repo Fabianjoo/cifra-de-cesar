@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
+    <title>Cifra de César</title>
+</head>
+<body>
+    
+    <main>
+        <h1>Cifra de César</h1>
+        
+        <section id="secao-mensagem">
+            <h2>Mensagem:</h2>
+            <textarea name="mensagem" id="mensagem" placeholder="Digite uma mensagem de até 128 caracteres." minlength="1" maxlength="128" cols="45" rows="3"></textarea>
+        </section>
+
+        <section id="secao-chave">
+            <label for="chave">Digite a chave: </label>
+            <input type="number" name="chave" id="chave" value="3">
+        </section>
+
+        <section id="secao-botao">
+            <button id="criptografar">Criptografar</button>
+            <button id="descriptografar">Descriptografar</button>
+        </section>
+    </main>
+
+    <div id="resultado">
+        <h2>Mensagem Resultado</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iusto maiores nobis obcaecati? Provident et ex illo? Excepturi, deserunt commodi!</p>
+        <button id="recarregar">NOVA MENSAGEM</button>
+    </div>
+
+    <script src="scripts/dom.js"></script>
+    <script src="scripts/criptografias.js"></script>
+    <script src="scripts/botoes.js"></script>
+</body>
+</html>

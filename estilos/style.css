@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../imagens/fundo.jpg);
+}
+
+main{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    background-color: #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 400px;
+    z-index: 1;
+    box-shadow: 2px 2px 3px rgb(0, 0, 0);
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: "Metal Mania", system-ui;
+    text-decoration: underline;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-family: "Metal Mania", system-ui;
+}
+
+textarea#mensagem{
+    background-color: lightgreen;
+}
+
+input#chave{
+    width: 50px;
+    padding: 5px;
+    background-color: lightgreen;
+}
+
+section#secao-botao{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+button#criptografar, button#descriptografar{
+    padding: 15px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: orange;
+    border: 2px solid black;
+    cursor: pointer;
+    font-family: "Tagesschrift", system-ui;
+}
+
+button#criptografar:hover, button#descriptografar:hover, button#recarregar:hover{
+    background-color: black;
+    color: orange;
+}
+
+div#resultado{
+    background-color: #ccc;
+    width: 387px;
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 0;
+    transition: all 0.5s ease;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+button#recarregar{
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 10px;
+    background-color: orange;
+    border: 2px solid black;
+    cursor: pointer;
+    font-family: "Tagesschrift", system-ui;
+}
+
+div#resultado.ativar{
+    transform: translateY(0);
+    opacity: 1;
+}
