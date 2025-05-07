@@ -16,7 +16,9 @@
                 resultado.querySelector("p").innerText = mensagem_criptografada
                 //ANIMAÇÃO E CONTEÚDO DA DIV RESULTADO
                 resultado.classList.add("ativar")
-                div_botao.style.display = "none";
+                div_botao.style.display = "none"
+                caixatexto.disabled = true
+
             }
         })
 
@@ -36,6 +38,7 @@
                 //ANIMAÇÃO E CONTEÚDO DA DIV RESULTADO
                 resultado.classList.add("ativar")
                 div_botao.style.display = "none";
+                caixatexto.disabled = true
             }
         })
 
