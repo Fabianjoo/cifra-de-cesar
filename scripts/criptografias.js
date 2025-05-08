@@ -12,16 +12,20 @@ function criptografar(mensagem, chave) {
             let codigo = caractere.charCodeAt(0); // PEGA O CÓDIGO ASCII DO CARACTERE
 
             /* Cálculo:
-                1. codigo - base
-                    Transforma o caractere em uma posição de 0 a 25 no alfabeto.
-                2. + chave
-                    Aplica o deslocamento da cifra.
-                3. % 26
-                    Garante que o resultado fique entre 0 e 25.
-                4. + base
-                    Converte de volta para o código ASCII.
+            1. codigo - base
+                Transforma o caractere em uma posição no alfabeto, onde A = 0, B = 1, ..., Z = 25
+            2. + chave
+                Aplica o deslocamento da cifra, que pode ser positivo ou negativo.
+            3. % 26
+                Garante que o resultado do deslocamento esteja dentro do intervalo de 0 a 25, ou seja, dentro das letras do alfabeto.
+            4. + 26
+                Adiciona 26 para lidar com deslocamentos negativos e garantir que o valor final seja sempre positivo.
+            5. % 26
+                Garante que, após o ajuste de deslocamento, o valor final fique dentro do intervalo de 0 a 25.
+            6. + base
+                Converte o índice final de volta para o código ASCII do caractere deslocado (maiúscula ou minúscula).
             */
-            let deslocamento = ((codigo - base + chave) % 26 + 26) % 26;
+            let deslocamento = ((codigo - base + chave) % 26 + 26) % 26
             let letra_deslocada = String.fromCharCode(base + deslocamento); // CONVERTE DE VOLTA PARA CARACTERE
             resultado += letra_deslocada;
         } else { // SE NÃO FOR LETRA, ADICIONA AO RESULTADO COMO ESTÁ
