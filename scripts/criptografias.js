@@ -28,7 +28,38 @@ function criptografar(mensagem, chave) {
             let deslocamento = ((codigo - base + chave) % 26 + 26) % 26
             let letra_deslocada = String.fromCharCode(base + deslocamento); // CONVERTE DE VOLTA PARA CARACTERE
             resultado += letra_deslocada;
-        } else { // SE NÃO FOR LETRA, ADICIONA AO RESULTADO COMO ESTÁ
+
+        } else if (caractere.match(/[áéíóúÁÉÍÓÚ]/)) { // VALIDA SE É UMA LETRA ACENTUADA
+            let acentuadas = "áéíóúÁÉÍÓÚ"
+            let index = acentuadas.indexOf(caractere)
+        
+            if (index !== -1) {
+        
+                // (index % 5) garante que o índice se mantenha dentro do intervalo de 0 a 4 (por conta das 5 letras de cada tipo: minúsculas e maiúsculas)
+                // Somamos a chave (deslocamento) ao índice para aplicar o efeito da cifra.
+                let baseIndex = (index % 5) + chave
+        
+                // Este cálculo assegura que baseIndex esteja dentro do intervalo correto de 0 a 4.
+                baseIndex = ((baseIndex % 5) + 5) % 5 
+        
+                // Dependendo se o caractere original (antes do deslocamento) está na parte das minúsculas ou maiúsculas da string 'acentuadas',
+                // ele vai escolher a posição correta para a letra deslocada.
+                // Se o índice for menor que 5 (minúsculas), aplica o deslocamento na parte das minúsculas da string.
+                // Se for maior ou igual a 5 (maiúsculas), aplica o deslocamento na parte das maiúsculas.
+                resultado += acentuadas[index < 5 ? baseIndex : baseIndex + 5]
+            } 
+            
+        } else if (caractere.match(/[âêîôûÂÊÎÔÛ]/)) { 
+            let acentuadas = "âêîôûÂÊÎÔÛ"
+            let index = acentuadas.indexOf(caractere)
+        
+            if (index !== -1) {
+                let baseIndex = (index % 5) + chave
+                baseIndex = ((baseIndex % 5) + 5) % 5 
+                resultado += acentuadas[index < 5 ? baseIndex : baseIndex + 5]
+            } 
+        }
+        else { // SE NÃO FOR LETRA, ADICIONA AO RESULTADO COMO ESTÁ
             resultado += caractere;
         }
     }

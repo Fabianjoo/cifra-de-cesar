@@ -73,7 +73,7 @@ button#criptografar, button#descriptografar{
     font-family: "Tagesschrift", system-ui;
 }
 
-button#criptografar:hover, button#descriptografar:hover, button#recarregar:hover{
+button#criptografar:hover, button#descriptografar:hover, button#recarregar:hover, button#copiar:hover{
     background-color: black;
     color: orange;
 }
@@ -93,7 +93,7 @@ div#resultado > p{
     overflow-wrap: break-word;
 }
 
-button#recarregar{
+button#recarregar, button#copiar {
     padding: 15px;
     border-radius: 350px;
     margin-top: 10px;

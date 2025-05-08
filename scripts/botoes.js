@@ -46,3 +46,28 @@
         botao_reload.addEventListener("click", function(){
             location.reload();
         })
+
+        //3- BOTAO COPIAR
+        botao_copiar.addEventListener("click", function() {
+            // Cria um elemento temporário textarea
+            var temporario = document.createElement("textarea");
+        
+            // Define o conteúdo do textarea como o texto do parágrafo
+            temporario.value = resultado.querySelector("p").innerText;
+        
+            // Adiciona o textarea ao corpo do documento (necessário para a operação de seleção)
+            document.body.appendChild(temporario);
+        
+            // Seleciona o conteúdo do textarea
+            temporario.select();
+        
+            // Tenta copiar o conteúdo para a área de transferência
+            document.execCommand("copy");
+        
+            // Remove o textarea temporário
+            document.body.removeChild(temporario);
+        
+            // Atualiza o texto de feedback para o usuário
+            resultado.querySelector("p").innerText = "TEXTO COPIADO!!";
+        });
+        
