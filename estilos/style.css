@@ -47,6 +47,7 @@ h2 {
 
 textarea#mensagem{
     background-color: lightgreen;
+    resize: none;
 }
 
 input#chave{
